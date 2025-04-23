@@ -1,50 +1,85 @@
-# Minimal DevContainer Template
+# React DevContainer Template
 
-[![DevContainer](https://img.shields.io/badge/devcontainer-ready-blue)](https://code.visualstudio.com/docs/devcontainers/containers)
-[![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![DevContainer Ready](https://img.shields.io/badge/devcontainer-ready-blue)](https://containers.dev/)
+[![Vite](https://img.shields.io/badge/Vite-React_19-blueviolet)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0.0-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
+[![Makefile](https://img.shields.io/badge/makefile-included-blue?logo=gnu)](https://www.gnu.org/software/make/)
 
-
-## Overview
-
-This is a minimal, language-agnostic [DevContainer](https://containers.dev/) setup designed for fast startup and easy extension. It provides a Docker-based development environment configured for use with Visual Studio Code Remote - Containers.
+> A modern DevContainer template for React 19, powered by Vite, Tailwind CSS v4, and pnpm. Lightweight, opinionated, and developer-focused.
 
 ## Features
 
-- Based on the official `mcr.microsoft.com/devcontainers/base:debian` image
-- Non-root `vscode` user for safe, consistent dev workflows
-- Lightweight: includes only essential tools (git, curl, bash)
-- VS Code Docker extension pre-installed
-- Clean starting point for building language-specific environments
+- **React 19** (via Vite template)
+- **Tailwind CSS v4** (with plugin-based Vite integration)
+- **pnpm** as the package manager
+- **DevContainer** optimized for VS Code with live reload
+- Pre-installed VS Code extensions:
+  - ESLint
+  - Prettier
+  - Docker
+  - TypeScript Next
+- Makefile for common tasks (setup, dev, build, lint, format, clean)
 
-## Usage
+## Getting Started
 
-1. Clone or fork this repository:
+### Prerequisites
 
-   ```bash
-   git clone git@github.com:jonmatum/devcontainer-minimal-template.git
-   cd devcontainer-minimal-template
-   ```
+- Docker + Dev Containers extension (VS Code)
+- Git
 
-2. Open the folder in [Visual Studio Code](https://code.visualstudio.com/):
+### Quick Start
 
-   - You will be prompted to reopen the folder in a Dev Container
+```bash
+git clone https://github.com/YOUR_USERNAME/devcontainer-react-template.git
+cd devcontainer-react-template
+code . # Open in VS Code and re-open in container
+make setup
+make dev
+```
 
-3. Customize the Dockerfile and `devcontainer.json` for your stack
+Access your app at: [http://localhost:5173](http://localhost:5173)
 
-## File Structure
+## Project Structure
 
 ```
 .devcontainer/
 ├── devcontainer.json
 ├── Dockerfile
+Makefile
+app/
+├── index.html
+├── package.json
+├── src/
+│   └── App.tsx (fetched from Gist)
+│   └── index.css
+├── vite.config.ts
 ```
 
-## Requirements
+## Makefile Commands
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+| Command       | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `make setup`  | Scaffold app and apply Tailwind/React/Vite setup |
+| `make dev`    | Start the Vite dev server                        |
+| `make build`  | Create production build                          |
+| `make lint`   | Run linter (optional, if configured)             |
+| `make format` | Format files with Prettier                       |
+| `make clean`  | Clean output/dist                                |
+
+## Configuration Highlights
+
+### Dockerfile
+
+Uses the official [devcontainers/javascript-node](https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node) image with additional:
+
+- Corepack-enabled `pnpm`
+- System dependencies: curl, git, bash
+
+### devcontainer.json
+
+- Pre-configured ports, terminal, and user
+- Includes extensions for best TypeScript and React DX
 
 ## License
 
@@ -52,4 +87,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-> Pura Vida & Happy Coding!
+> Happy Coding & Pura Vida!
