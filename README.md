@@ -31,7 +31,7 @@
 ### Quick Start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/devcontainer-react-template.git
+git clone https://github.com/jonmatum/devcontainer-react-template.git
 cd devcontainer-react-template
 code . # Open in VS Code and re-open in container
 make setup
